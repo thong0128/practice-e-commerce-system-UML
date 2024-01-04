@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+
+actor "Potential customer" as PC
+actor Customer
+actor Seller
+
+usecase "Browse main page" as Bmp
+usecase "Browse productions" as Bpro
+usecase "Search"
+usecase "Browse product details" as Bpd
+usecase "Browse promotion" as Bpromo
+usecase "Browse comparison" as Bcom
+usecase "Cart management" as Cartmng
+usecase "Chat"
+usecase "User register" as Ure
+usecase Login
+usecase "User order management" as Uomng
+usecase "Order management" as Omng
+
+usecase "Browse by type" as Bbt
+usecase "Browse by manufacture" as Bbm
+usecase Buy
+usecase Purchase
+usecase "Collect payment" as Cpay
+usecase "Order tracking" as Otrack
+
+Bpro ..> Bbt : <<include>>
+Bpro ..> Bbm : <<include>>
+Cartmng ..> Buy : <<include>>
+Uomng ..> Purchase : <<include>>
+Omng ..> Cpay : <<include>>
+Omng ..> Otrack : <<include>>
+
+PC -- Bmp
+PC -- Bpro
+PC -- Search
+PC -- Bpd
+PC -- Bpromo
+PC -- Bcom
+PC -- Cartmng
+PC -- Chat
+PC -- Ure
+
+Customer -- Login
+Customer -- Uomng
+
+Chat -- Seller
+Login -- Seller
+Seller -- Omng
+
+
+@enduml
