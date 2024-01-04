@@ -18,15 +18,15 @@ usecase Login
 usecase "User order management" as Uomng
 usecase "Order management" as Omng
 
-usecase "Browse by type" as Bbt
-usecase "Browse by manufacture" as Bbm
+usecase "Browse by types" as Bbt
+usecase "Browse by providers" as Bbprv
 usecase Buy
 usecase Purchase
 usecase "Collect payment" as Cpay
 usecase "Order tracking" as Otrack
 
 Bpro ..> Bbt : <<include>>
-Bpro ..> Bbm : <<include>>
+Bpro ..> Bbprv : <<include>>
 Cartmng ..> Buy : <<include>>
 Uomng ..> Purchase : <<include>>
 Omng ..> Cpay : <<include>>

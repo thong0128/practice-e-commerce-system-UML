@@ -1,0 +1,117 @@
+@startuml
+'https://plantuml.com/class-diagram
+'left to right direction
+
+class Promotion {
+-PromotionID
+-ProductID
+-Description
+-Amount
+-DateStart
+-DateEnd
+}
+class Products {
+-ProductID
+-Name
+-ConfigurationInform
+}
+class ProductType {
+-ProductTypeName
+}
+class Provider {
+-ProviderName
+}
+class CartDetails {
+-CartID
+-ProductID
+-Quantity
+-UnitPrice
+-PromotionAmount
+}
+class ShoppingCart {
+-CartID
+-Date
+}
+class Orders {
+-OrderID
+-Date
+-CustomerID
+}
+class ShippingOrders {
+-ShippingID
+-OrderID
+-ShippingDate
+-DestinationDate
+-Fee
+-ShippingType
+}
+class Prices {
+-PriceID
+-ProductID
+-UnitPrice
+-DateStart
+-DateEnd
+}
+class Guests
+class ChatSession {
+-SessionID
+-UserID
+-GuestSessionID
+-MessageID
+-Message
+-Date
+}
+class Customer {
+-CustomerID:char[10]
+-Name:varchar[50]
+-Address:varchar[100]
+-Phone:char[10]
+-Date:Datetime
+-Password:varchar[50]
+-Status:boolean
++Registry()
++ChangePassword()
++ActiveCustomer()
+}
+class Payments {
+-PaymentID
+-OrderID
+-Amount
+-Date
+-Method
+}
+class OrderDetails {
+-OrderID
+-ProductID
+-Quantity
+-UnitPrice
+-PromotionID
+}
+class Users {
+-UserID
+-Name
+-Role
+}
+
+
+Promotion -- CartDetails
+Promotion -- Products
+Products -- ProductType
+Products -- Provider
+Products -- CartDetails
+Products -- OrderDetails
+OrderDetails -- Orders
+CartDetails -- ShoppingCart
+CartDetails -- Prices
+Orders -- ShoppingCart
+Orders -- ShippingOrders
+Orders -- Payments
+Orders -- Customer
+ShoppingCart -- Guests
+Guests -- ChatSession
+ChatSession -- Users
+Prices - OrderDetails
+OrderDetails -- Promotion
+Prices -- Products
+
+@enduml
